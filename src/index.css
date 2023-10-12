@@ -1,13 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  input {
+    @apply outline-none border p-1 w-96 rounded-sm placeholder:italic;
+  }
+
+  label {
+    @apply text-left text-sm my-2 text-slate-400;
+  }
+
+  form {
+    @apply flex flex-col items-start mx-auto w-1/2;
+  }
+
+  .btn {
+    @apply bg-violet-400 p-2 mt-2 rounded-sm text-white hover:opacity-50;
+  }
+
+  .btn-google {
+    @apply bg-blue-400
+  }
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px ;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.Logo div {
+  font-family: 'Pacifico', cursive;
+}
+
+.Logo p {
+  font-weight: 100;
+  font-family: 'Roboto Mono', monospace;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
 }
