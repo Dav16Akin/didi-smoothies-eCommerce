@@ -3,8 +3,9 @@ import { useState } from "react";
 
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
+  signInAuthUserWithEmailAndPassword,
 } from "../../Utils/Firebase/firebase.utils";
+
 
 const defaultFormFields = {
   email: "",
@@ -16,23 +17,33 @@ const SignInForm = () => {
 
   const { email, password } = formFields;
 
-  console.log(formFields);
-
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithgoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      await signInAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
       resetFormFields();
-    } catch (error) {}
+    } catch (error) {
+     switch (error.code) {
+      case "auth/invalid-login-credentials":
+        alert("Login credentials do not exist")
+        break;
+      default:
+        console.log(error);
+        break;
+     }
+    }
   };
 
   const handleChange = (e) => {
@@ -64,9 +75,17 @@ const SignInForm = () => {
           name="password"
           value={password}
         />
-        <div className="grid grid-cols-2 gap-5">
-          <button className="btn btn-primary" type="submit">Sign In</button>
-          <button className="btn btn-google" onClick={signInWithgoogle}>Google Sign In</button>
+        <div className="grid grid-row-2">
+          <button className="btn btn-primary" type="submit">
+            Sign In
+          </button>
+          <button
+            type="button"
+            className="btn btn-google"
+            onClick={signInWithgoogle}
+          >
+            Google Sign In
+          </button>
         </div>
       </form>
     </div>

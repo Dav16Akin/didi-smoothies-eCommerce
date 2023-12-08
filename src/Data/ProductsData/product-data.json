@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Banana Burst",
+        "price": 1500,
+        "popular": true,
+        "img": "https://i.imgur.com/l5kjZ21.jpg",
+        "category": "smoothie"
+    },
+    {
+        "id": 2,
+        "name": "Pineapple",
+        "price": 1500,
+        "popular": true,
+        "img": "https://i.imgur.com/49TmDJT.jpg",
+        "category": "juice"
+    },
+    {
+        "id": 3,
+        "name": "Water Melon",
+        "price": 1200,
+        "popular": true,
+        "img": "https://i.imgur.com/f8neUiU.jpg",
+        "category": "juice"
+    },
+    {
+        "id": 4,
+        "name": "Carrot",
+        "price": 1500,
+        "popular": true,
+        "img": "https://i.imgur.com/6GXIR3t.jpg",
+        "category": "juice"
+    },
+    {
+        "id": 5,
+        "name": "Apple",
+        "price": 1500,
+        "popular": true,
+        "img": "https://i.imgur.com/kRjtFUi.jpg",
+        "category": "juice"
+    },
+    {
+        "id": 6,
+        "name": "PineApple",
+        "price": 1200,
+        "popular": true,
+        "img": "https://i.imgur.com/49TmDJT.jpg",
+        "category": "juice"
+    },
+    {
+        "id": 7,
+        "name": "Banana-Betruit",
+        "price": 1500,
+        "popular": true,
+        "img": "https://i.imgur.com/jgqjaSP.jpg",
+        "category": "smoothie"
+    },
+    {
+        "id": 8,
+        "name": "Combo",
+        "price": 6500,
+        "popular": true,
+        "img": "https://i.imgur.com/zvRX7Ms.jpg",
+        "category": "juice"
+    },
+    {
+        "id": 9,
+        "name": "Detox",
+        "price": 1500,
+        "popular": true,
+        "img": "https://i.imgur.com/TSGPQEc.jpg",
+        "category": "juice"
+    },
+    {
+        "id": 10,
+        "name": "PineApple",
+        "price": 1500,
+        "popular": true,
+        "img": "https://i.imgur.com/crbGeyr.jpg",
+        "category": "juice"
+    }
+]

@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 
+import { UserContext } from "../../Contexts/User.Context";
+
+import { signOutUser } from "../../Utils/Firebase/firebase.utils";
+
+import CartIcon from "../../Components/Cart-Icon/Cart-Icon.Component";
+import CartSidebar from "../../Components/Cart-sidebar/CartSidebar.Component.";
+import { CartContext } from "../../Contexts/Cart.Context";
+
 const Navigation = () => {
+  const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
+
   return (
     <>
-      <div className="Nav-container flex bg-white justify-between items-center h-20 border fixed top-0 bottom-0 w-screen z-50">
+      <div className="Nav-container flex bg-white justify-between items-center h-20 border-b-2 fixed top-0 bottom-0 w-screen z-50">
         <div className="Nav-links flex basis-2/6 text-xs pl-8">
           <Link className="Nav-link" to="/buy-products">
             <div>BUY-PRODUCTS</div>
@@ -26,7 +37,7 @@ const Navigation = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5 mr-6 stroke-1"
+            className="w-5 h-5 mr-6 stroke-1 cursor-pointer"
           >
             <path
               strokeLinecap="round"
@@ -34,10 +45,19 @@ const Navigation = () => {
               d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
             />
           </svg>
-          <Link to="/auth" className="">
-            <div>SIGN IN</div>
-          </Link>
+          {currentUser ? (
+            <span className="cursor-pointer" onClick={signOutUser}>
+              SIGN OUT
+            </span>
+          ) : (
+            <Link to="/auth" className="">
+              <div className="mr-5">SIGN IN</div>
+            </Link>
+          )}
+
+          <CartIcon />
         </div>
+        {isCartOpen && <CartSidebar />}
       </div>
       <Outlet />
     </>

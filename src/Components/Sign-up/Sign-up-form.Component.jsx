@@ -18,8 +18,6 @@ const SignUpForm = () => {
 
   const { displayName, email, password, confirmPassword } = formFields;
 
-  console.log(formFields);
-
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
@@ -56,7 +54,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="email-signup-form-container container">
+    <div className="email-signup-form-container">
       <h1 className="font-bold">Don't have an account ?</h1>
       <span>Sign up with Email and Password</span>
       <form className="email-signup-form" onSubmit={handleSubmit}>
@@ -97,7 +95,9 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <button className="btn btn-primary" type="submit">Sign Up</button> 
+        <button className="btn btn-primary" type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
   );
