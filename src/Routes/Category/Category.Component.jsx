@@ -1,31 +1,32 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-import { ProductContext } from "../../Contexts/Products.Context";
+
 import Card from "../../Components/Cards/Card.Component";
+import { selectCategoriesMap } from "../../Store/Categories/category.selector";
 
 const Category = () => {
   const { category } = useParams();
-  const { products } = useContext(ProductContext);
-  const [product, setproduct] = useState(products[category]);
+  const categoriesMap = useSelector(selectCategoriesMap);
+
+  const [product, setproduct] = useState(categoriesMap[category]);
 
   useEffect(() => {
-    setproduct(products[category]);
-  }, [products, category]);
-
-  console.log(
-    product &&
-      product.map((product) => <Card key={product.id} product={product}></Card>)
-  );
+    setproduct(categoriesMap[category]);
+  }, [categoriesMap, category]);
 
   return (
     <>
-      {" "}
-      <h2 className="mx-auto text-3xl font-bold pt-9 uppercase">{category}</h2>
-      <div className="container mx-auto p-8 pt-0 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
-        {product &&
-          product.map((item) => <Card key={item.id} product={item}></Card>)}
+      <div className="mx-40">
+        <h2 className="mx-auto text-3xl font-bold pt-9 uppercase">
+          {category}
+        </h2>
+        <div className="container mx-auto p-8 pt-0 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
+          {product &&
+            product.map((item) => <Card key={item.id} product={item}></Card>)}
+        </div>
       </div>
     </>
   );

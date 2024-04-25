@@ -1,18 +1,21 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
-import { UserContext } from "../../Contexts/User.Context";
+import { useSelector } from "react-redux";
 
 import { signOutUser } from "../../Utils/Firebase/firebase.utils";
 
 import CartIcon from "../../Components/Cart-Icon/Cart-Icon.Component";
 import CartSidebar from "../../Components/Cart-sidebar/CartSidebar.Component.";
-import { CartContext } from "../../Contexts/Cart.Context";
+
+import { selectCurrentUser } from "../../Store/User/user.selector";
+import { selectIsCartOpen } from "../../Store/Cart/cart.selector";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
+  const currentUser = useSelector(selectCurrentUser)
 
+  const isCartOpen = useSelector(selectIsCartOpen)
+ 
   return (
     <>
       <div className="Nav-container flex bg-white justify-between items-center h-20 border-b-2 fixed top-0 bottom-0 w-screen z-50">
@@ -30,14 +33,14 @@ const Navigation = () => {
           </div>
           <p className="text-xl font-light">store</p>
         </Link>
-        <div className="Auth basis-2/6 text-xs flex justify-end pr-8">
+        <div className="basis-2/6 text-xs flex space-x-6 justify-end pr-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5 mr-6 stroke-1 cursor-pointer"
+            className="w-5 h-5 stroke-1 cursor-pointer"
           >
             <path
               strokeLinecap="round"

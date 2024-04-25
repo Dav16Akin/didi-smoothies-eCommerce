@@ -24,6 +24,17 @@
   color: white;
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  backdrop-filter: blur(10px);
+  /* Apply blur effect */
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -32,6 +43,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

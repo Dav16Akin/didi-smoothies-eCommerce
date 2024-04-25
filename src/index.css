@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,400;1,600;1,900&display=swap');
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
 @layer base {
+
   input {
     @apply outline-none border-b-3 p-1 w-96 text-lg rounded-sm placeholder:italic;
   }
@@ -27,7 +29,7 @@
   }
 
   .btn-inverse {
-    @apply bg-black p-2 rounded-sm w-full text-white text-lg hover:bg-white hover:border-3 transition duration-300 hover:border-black hover:text-black ;
+    @apply bg-black p-2 rounded-sm w-full text-white text-lg hover:bg-white hover:border-3 transition duration-300 hover:border-black hover:text-black;
   }
 
 }
@@ -35,7 +37,7 @@
 body {
   margin: 0;
   padding-top: 80px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Raleway', monospace;
 }
 
 .Logo div {
@@ -44,7 +46,7 @@ body {
 
 .Logo p {
   font-weight: 100;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Raleway', monospace;
 }
 
 code {
@@ -64,8 +66,8 @@ a {
 .material-symbols-outlined {
   color: white;
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
 }

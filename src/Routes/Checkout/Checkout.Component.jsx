@@ -1,8 +1,19 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../Contexts/Cart.Context";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addItemToCart } from "../../Store/Cart/cart.action";
+import { selectCartItems } from "../../Store/Cart/cart.selector";
+import { selectCartTotal } from "../../Store/Cart/cart.selector";
+import { removeItemFromCart } from "../../Store/Cart/cart.action";
+import { deleteItemFromCart } from "../../Store/Cart/cart.action";
+
 
 const Checkout = () => {
-  const { cartItems, cartTotal, addItemToCart, removeItemFromCart, deleteItemFromCart} = useContext(CartContext);
+  const dispatch = useDispatch();
+
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+
   return (
     <div className="mx-56 my-14 text-left">
       <h1 className="text-3xl">Cart</h1>
@@ -17,7 +28,10 @@ const Checkout = () => {
 
         {cartItems.map((item) => {
           return (
-            <div key={item.id} className="grid grid-cols-5 items-center border-b-2">
+            <div
+              key={item.id}
+              className="grid grid-cols-5 items-center border-b-2"
+            >
               <img
                 className="h-28 w-28 my-5 object-cover object-center"
                 src={item.img}
@@ -33,7 +47,7 @@ const Checkout = () => {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className="w-6 h-6 stroke-2 cursor-pointer"
-                  onClick={() => removeItemFromCart(item)}
+                  onClick={() => dispatch(removeItemFromCart(cartItems, item))}
                 >
                   <path
                     strokeLinecap="round"
@@ -49,7 +63,7 @@ const Checkout = () => {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className="w-6 h-6 stroke-2 cursor-pointer"
-                  onClick={() => addItemToCart(item)}
+                  onClick={() => dispatch(addItemToCart(cartItems, item))}
                 >
                   <path
                     strokeLinecap="round"
@@ -67,7 +81,7 @@ const Checkout = () => {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className="w-8 h-8 cursor-pointer stroke-black"
-                  onClick={() => deleteItemFromCart(item)}
+                  onClick={() => dispatch(deleteItemFromCart(cartItems, item))}
                 >
                   <path
                     strokeLinecap="round"
