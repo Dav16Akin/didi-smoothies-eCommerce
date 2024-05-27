@@ -6,6 +6,7 @@ import { selectCartItems } from "../../Store/Cart/cart.selector";
 import { selectCartTotal } from "../../Store/Cart/cart.selector";
 import { removeItemFromCart } from "../../Store/Cart/cart.action";
 import { deleteItemFromCart } from "../../Store/Cart/cart.action";
+import PaymentForm from "../../Components/Payment-Form/Payment-Form.Component";
 
 
 const Checkout = () => {
@@ -93,12 +94,14 @@ const Checkout = () => {
             </div>
           );
         })}
+
+  
       </div>
 
       <div className="mt-5 flex flex-col items-end">
         <h1>Amount Total : #{cartTotal}</h1>
-        <button className="btn-inverse w-72 mt-8">Go To Checkout</button>
       </div>
+      <PaymentForm/>
     </div>
   );
 };

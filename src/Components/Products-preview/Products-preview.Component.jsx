@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ProductsPreview = ({ title, products }) => {
   return (
-    <div className="m mx-40">
+    <div className="lg:mx-40 sm:mx-20 ">
       <h2 className="text-left ml-16 mt-6 mb-0 font-bold text-3xl">
         <span className="underline flex items-center">
           <Link to={title}>{title.toUpperCase()}</Link>
@@ -22,7 +22,7 @@ const ProductsPreview = ({ title, products }) => {
           </svg>
         </span>
       </h2>
-      <div className="container mx-auto p-8 pt-0 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
+      <div className="mx-auto p-8 pt-0 grid grid-cols-4 max-sm:grid-cols-2 max-sm:gap-2 lg:gap-4">
         {products
           .filter((_, index) => index < 4)
           .map((product) => (

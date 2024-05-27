@@ -2,21 +2,29 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from "./Utils/Stripe/stripe.utils";
+import "./toastify.css"
 
 import { Provider } from "react-redux";
 
 import "./index.css";
 import App from "./App";
-import { store } from "./Store/Store";
+import { store, persistor } from "./Store/Store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <PersistGate persistor={persistor}>
+        <BrowserRouter>
+          <Elements stripe={stripePromise}>
             <App />
-      </BrowserRouter>
+          </Elements>
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );

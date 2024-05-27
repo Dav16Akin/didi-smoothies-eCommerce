@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-import {
-  signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword,
-} from "../../Utils/Firebase/firebase.utils";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
+import { googleSignInStart, emailSignInStart } from "../../Store/User/user.action";
+// import { showNotification } from "../../Store/Notification/notification.action";
 
 const defaultFormFields = {
   email: "",
@@ -13,6 +14,7 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const { email, password } = formFields;
@@ -22,27 +24,24 @@ const SignInForm = () => {
   };
 
   const signInWithgoogle = async () => {
-    await signInWithGooglePopup();
+    dispatch(googleSignInStart());
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
+     dispatch(emailSignInStart(email, password))
       resetFormFields();
     } catch (error) {
-     switch (error.code) {
-      case "auth/invalid-login-credentials":
-        alert("Login credentials do not exist")
-        break;
-      default:
-        console.log(error);
-        break;
-     }
+      switch (error.code) {
+        case "auth/invalid-login-credentials":
+          alert("Login credentials do not exist");
+          break;
+        default:
+          console.log(error);
+          break;
+      }
     }
   };
 
@@ -75,16 +74,16 @@ const SignInForm = () => {
           name="password"
           value={password}
         />
-        <div className="grid grid-row-2">
-          <button className="btn btn-primary" type="submit">
+        <div className="flex justify-between space-x-6">
+          <button className="btn btn-primary" type="submit" >
             Sign In
           </button>
           <button
             type="button"
-            className="btn btn-google"
+            className="btn btn-google w-1/3"
             onClick={signInWithgoogle}
           >
-            Google Sign In
+            <FontAwesomeIcon icon={faGoogle} />
           </button>
         </div>
       </form>
