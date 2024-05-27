@@ -23,14 +23,14 @@ const Category = () => {
 
   return (
     <>
-      <div className="mx-40">
+      <div className="">
         <h2 className="mx-auto text-3xl font-bold pt-9 uppercase">
           {category}
         </h2>
         {isLoading ? (
           <Spinner />
         ) : (
-          <div className="container mx-auto p-8 pt-0 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
+          <div className="container mx-auto p-8 pt-0 grid grid-cols-4  max-sm:grid-cols-2 gap-4">
             {product &&
               product.map((item) => <Card key={item.id} product={item}></Card>)}
           </div>

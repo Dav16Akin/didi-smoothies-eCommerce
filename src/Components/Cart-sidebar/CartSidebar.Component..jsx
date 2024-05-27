@@ -68,9 +68,9 @@ const CartSidebar = () => {
                 </div>
               </div>
 
-              <div className="w-72 mx-auto mb-4">
+              <div className="w-72 mx-auto mb-12">
                 <button className="btn-inverse" onClick={goToCheckOutHandler}>
-                  Go to Cart
+                  Go to Checkout
                 </button>
               </div>
             </nav>
