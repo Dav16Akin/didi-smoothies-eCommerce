@@ -13,7 +13,7 @@
 @layer base {
 
   input {
-    @apply outline-none border-b-3 p-1 w-96 text-lg rounded-sm placeholder:italic;
+    @apply border p-3 outline-slate-500 max-md:w-80 w-96 text-lg rounded-full placeholder:italic;
   }
 
   label {
@@ -29,7 +29,7 @@
   }
 
   .btn-google {
-    @apply bg-blue-400
+    @apply bg-blue-300
   }
 
   .btn-inverse {

@@ -49,7 +49,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="email-signup-form-container">
+    <div className="email-signup-form-container text-center">
       <h1 className="font-bold">Don't have an account ?</h1>
       <span>Sign up with Email and Password</span>
       <form className="email-signup-form" onSubmit={handleSubmit}>
@@ -90,7 +90,7 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <button className="btn btn-primary" type="submit">
+        <button className="btn btn-primary rounded-full" type="submit">
           Sign Up
         </button>
       </form>

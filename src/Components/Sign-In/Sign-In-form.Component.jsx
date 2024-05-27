@@ -52,8 +52,8 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="email-signup-form-container">
-      <h1 className="font-bold">Already have an Account ?</h1>
+    <div className="email-signup-form-container text-center mx-4">
+      <p className="font-bold">Already have an Account ?</p>
       <span>Sign In with Email and Password</span>
       <form className="email-signup-form" onSubmit={handleSubmit}>
         <label>Email</label>
@@ -75,12 +75,12 @@ const SignInForm = () => {
           value={password}
         />
         <div className="flex justify-between space-x-6">
-          <button className="btn btn-primary" type="submit" >
+          <button className="btn btn-primary rounded-full" type="submit" >
             Sign In
           </button>
           <button
             type="button"
-            className="btn btn-google w-1/3"
+            className="btn btn-google rounded-full w-1/3"
             onClick={signInWithgoogle}
           >
             <FontAwesomeIcon icon={faGoogle} />
