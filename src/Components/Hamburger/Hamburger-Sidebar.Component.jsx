@@ -60,7 +60,7 @@ const HamburgerSidebar = () => {
                   </Link>
                 </div>
                 <div onClick={handleClick}>
-                  <Link className="text-3xl text-left underline">
+                  <Link to="/contact" className="text-3xl text-left underline">
                     <div>CONTACT</div>
                   </Link>
                 </div>
