@@ -23,7 +23,7 @@ const Card = ({ product }) => {
       <div className=" absolute inset-0 text-center bg-black opacity-90 translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-500">
         <div
           onClick={addProductToCart}
-          className="flex flex-col my-24 mx-1 py-2 font-medium text-white transition-all shadow-[0px_3px_0px_white] hover:shadow-none hover:translate-y-[3px]"
+          className="flex flex-col my-32 max-sm:my-20 mx-1 py-2 font-medium text-white transition-all shadow-[0px_3px_0px_white] hover:shadow-none hover:translate-y-[3px]"
         >
           Add to Cart
         </div>

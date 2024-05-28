@@ -16,12 +16,12 @@ const Checkout = () => {
   const cartTotal = useSelector(selectCartTotal);
 
   return (
-    <div className="mx-56 my-14 text-left">
+    <div className="mx-56 max-sm:mx-4 max-sm:my-0 my-14 text-left">
       <h1 className="text-3xl">Cart</h1>
       <div className="mt-4">
-        <div className="grid grid-cols-5 border-b-2">
+        <div className="grid grid-cols-5 border-b-2 space-x-4 max-sm:text-sm">
           <p>Product</p>
-          <p>Description</p>
+          <p>Description</p>   
           <p>Quantity</p>
           <p>Price</p>
           <p>Remove</p>
@@ -31,10 +31,10 @@ const Checkout = () => {
           return (
             <div
               key={item.id}
-              className="grid grid-cols-5 items-center border-b-2"
+              className="grid grid-cols-5 items-center space-x-4 border-b-2"
             >
               <img
-                className="h-28 w-28 my-5 object-cover object-center"
+                className="h-28 w-28 max-sm:h-20 max-sm:w-20 my-5 object-cover object-center"
                 src={item.img}
                 alt={`${item.name}`}
               />

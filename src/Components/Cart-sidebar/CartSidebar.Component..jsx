@@ -1,7 +1,10 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { selectCartItems, selectIsCartOpen } from "../../Store/Cart/cart.selector";
+import {
+  selectCartItems,
+  selectIsCartOpen,
+} from "../../Store/Cart/cart.selector";
 import { setIsCartOpen } from "../../Store/Cart/cart.action";
 import CartItem from "../Cart-Item/Cart-Item.Component";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,8 +13,8 @@ const CartSidebar = () => {
   const dispatch = useDispatch();
 
   const isCartOpen = useSelector(selectIsCartOpen);
-  const cartItems = useSelector(selectCartItems)
- 
+  const cartItems = useSelector(selectCartItems);
+
   const navigate = useNavigate();
   const goToCheckOutHandler = () => {
     toggleSidebar();
@@ -69,9 +72,14 @@ const CartSidebar = () => {
               </div>
 
               <div className="w-72 mx-auto mb-12">
-                <button className="btn-inverse" onClick={goToCheckOutHandler}>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="btn-inverse rounded-full"
+                  onClick={goToCheckOutHandler}
+                >
                   Go to Checkout
-                </button>
+                </motion.button>
               </div>
             </nav>
           </motion.aside>

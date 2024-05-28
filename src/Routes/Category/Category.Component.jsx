@@ -23,7 +23,7 @@ const Category = () => {
 
   return (
     <>
-      <div className="">
+      <div className="mx-40 max-sm:mx-0">
         <h2 className="mx-auto text-3xl font-bold pt-9 uppercase">
           {category}
         </h2>

@@ -7,9 +7,9 @@ const Home = () => {
   return (
     <>
       <div className="w-full overflow-y-hidden">
-        <div className=" banner w-full h-96 mx-auto mt-24 p-4">
+        <div className=" banner w-full h-96 mx-auto mt-24 max-sm:mt-16 p-4">
           <div>
-            <h1 className="font-extrabold text-7xl mb-8">
+            <h1 className="font-extrabold text-7xl mb-8 max-sm:text-4xl">
               Smoothies Prepared With Whole Fruits And Real Vegetables.
             </h1>
             <p className="text-2xl">
