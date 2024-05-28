@@ -43,9 +43,9 @@ const CartSidebar = () => {
             transition={{ duration: 0.5 }}
             className="h-full w-96 absolute right-0"
           >
-            <nav className=" h-screen flex flex-col justify-between border-l shadow-sm  bg-white">
+            <nav className=" h-screen flex flex-col justify-between border-l shadow-sm p-8  bg-white">
               <div className="flex flex-col justify-between overflow-y-scroll">
-                <div className="flex p-6 pb-2 border-b-2 justify-between items-center fixed w-96 bg-opacity-95 bg-white">
+                <div className="flex p-6 pb-2 border-b-2 space-x-36 items-center fixed w-96 bg-opacity-95 bg-white">
                   <h1>Shopping Cart</h1>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,7 @@ const CartSidebar = () => {
                 </div>
               </div>
 
-              <div className="w-72 mx-auto mb-12">
+              <div className="w-72 mx-auto mb-24">
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
